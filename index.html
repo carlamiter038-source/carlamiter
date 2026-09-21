@@ -1,0 +1,1498 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="pageTitle">Carla Miter Tech - Portfólio, Serviços & Produtos</title>
+<!-- Fontes do Google -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+    /* Variáveis de Tema Customizáveis */
+    :root {
+        --bg-main: #0a0a0a;
+        --bg-section-alt: #0d0d0d;
+        --bg-card: #141414;
+        --accent-color: #ffffff;
+        --accent-text: #000000;
+        --text-primary: #f3f3f3;
+        --text-muted: #999999;
+        --border-color: rgba(255, 255, 255, 0.08);
+    }
+
+    /* Estilos Gerais */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        scroll-behavior: smooth;
+    }
+
+    body {
+        background-color: var(--bg-main);
+        color: var(--text-primary);
+        line-height: 1.7;
+        letter-spacing: 0.2px;
+        transition: background-color 0.4s ease, color 0.4s ease;
+    }
+
+    /* Cabeçalho */
+    header {
+        background-color: rgba(10, 10, 10, 0.85);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border-color);
+        padding: 18px 8%;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.4rem;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        color: var(--text-primary);
+        text-transform: uppercase;
+    }
+
+    nav {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    nav a {
+        color: #b3b3b3;
+        text-decoration: none;
+        font-size: 0.88rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+        color: var(--text-primary);
+    }
+
+    .theme-picker-header {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.8rem;
+        color: #aaa;
+    }
+
+    .theme-picker-header input[type="color"] {
+        -webkit-appearance: none;
+        border: none;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        cursor: pointer;
+        background: transparent;
+    }
+
+    .theme-picker-header input[type="color"]::-webkit-color-swatch-wrapper {
+        padding: 0;
+    }
+
+    .theme-picker-header input[type="color"]::-webkit-color-swatch {
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+    }
+
+    .nav-insta {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        padding: 6px 14px;
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.05);
+    }
+
+    .nav-insta:hover {
+        background: var(--accent-color);
+        color: var(--accent-text) !important;
+        border-color: var(--accent-color);
+    }
+
+    /* Seções Gerais */
+    section {
+        padding: 120px 8% 80px 8%;
+        min-height: 80vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .hero {
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .hero-tag {
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+        color: #a1a1a1;
+        margin-bottom: 10px;
+        font-weight: 600;
+    }
+
+    .hero h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: 3.2rem;
+        font-weight: 700;
+        margin-bottom: 8px;
+        color: var(--text-primary);
+        line-height: 1.2;
+    }
+
+    .hero h2 {
+        font-size: 1.25rem;
+        color: var(--text-muted);
+        margin-bottom: 30px;
+        font-weight: 300;
+    }
+
+    .tech-vision {
+        background-color: #e0e0e0;
+        border-left: 3px solid #000000;
+        padding: 20px 24px;
+        border-radius: 0 12px 12px 0;
+        margin-bottom: 40px;
+    }
+
+    .tech-vision p {
+        color: #1a1a1a;
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    .section-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.2rem;
+        margin-bottom: 10px;
+        color: var(--text-primary);
+    }
+
+    .section-subtitle {
+        color: #888888;
+        margin-bottom: 40px;
+        font-size: 0.95rem;
+    }
+
+    /* Perfil / Skills Grid */
+    .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+    }
+
+    .skill-card {
+        background-color: var(--bg-card);
+        border: 1px solid var(--border-color);
+        padding: 24px;
+        border-radius: 12px;
+        transition: all 0.3s ease;
+    }
+
+    .skill-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(255, 255, 255, 0.4);
+    }
+
+    .skill-card h4 {
+        color: var(--text-primary);
+        font-size: 1.05rem;
+        margin-bottom: 8px;
+        font-weight: 600;
+    }
+
+    .skill-card p {
+        color: #cccccc;
+        font-size: 0.92rem;
+    }
+
+    /* Seção Mídia & Destaques (Propagandas) */
+    .media-section {
+        background-color: var(--bg-section-alt);
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .media-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 24px;
+    }
+
+    .media-card {
+        background-color: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .media-container {
+        width: 100%;
+        height: 220px;
+        background-color: #000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .media-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .media-container iframe, .media-container video {
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+
+    .media-info {
+        padding: 16px 20px;
+    }
+
+    .media-info h4 {
+        color: var(--text-primary);
+        font-size: 1.05rem;
+        margin-bottom: 6px;
+    }
+
+    .media-info p {
+        color: #aaaaaa;
+        font-size: 0.85rem;
+    }
+
+    /* Seção de Produtos Digitais */
+    .products-section {
+        background-color: var(--bg-main);
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .products-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 28px;
+    }
+
+    .product-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+        transition: all 0.3s ease;
+    }
+
+    .product-card:hover {
+        border-color: rgba(255, 255, 255, 0.3);
+        transform: translateY(-5px);
+    }
+
+    .product-badge {
+        align-self: flex-start;
+        background: rgba(255, 255, 255, 0.1);
+        color: var(--text-primary);
+        font-size: 0.75rem;
+        padding: 4px 12px;
+        border-radius: 20px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 15px;
+        font-weight: 600;
+    }
+
+    .product-card h3 {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.35rem;
+        color: var(--text-primary);
+        margin-bottom: 10px;
+    }
+
+    .product-card p {
+        color: #a0a0a0;
+        font-size: 0.9rem;
+        margin-bottom: 20px;
+    }
+
+    .product-price {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 20px;
+    }
+
+    .btn-buy-product {
+        display: block;
+        width: 100%;
+        padding: 12px;
+        background-color: var(--accent-color);
+        color: var(--accent-text);
+        text-align: center;
+        text-decoration: none;
+        font-weight: 600;
+        border-radius: 25px;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+    }
+
+    .btn-buy-product:hover {
+        opacity: 0.9;
+    }
+
+    .admin-controls {
+        margin-top: 30px;
+        text-align: center;
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .btn-admin {
+        background: transparent;
+        color: #888888;
+        border: 1px dashed rgba(255, 255, 255, 0.2);
+        padding: 10px 18px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 0.85rem;
+        transition: all 0.3s ease;
+    }
+
+    .btn-admin:hover {
+        color: var(--text-primary);
+        border-color: var(--text-primary);
+    }
+
+    /* Seção de Serviços */
+    .services-section {
+        background-color: var(--bg-section-alt);
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 28px;
+    }
+
+    .service-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        padding: 35px 30px;
+        border-radius: 16px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .service-card h3 {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.4rem;
+        margin-bottom: 12px;
+        color: var(--text-primary);
+    }
+
+    .service-card p {
+        color: var(--text-muted);
+        margin-bottom: 25px;
+        font-size: 0.9rem;
+    }
+
+    .service-price {
+        font-size: 1.7rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 8px;
+    }
+
+    .payment-methods {
+        font-size: 0.8rem;
+        color: #777777;
+        margin-bottom: 25px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .payment-link {
+        color: var(--text-primary);
+        font-weight: 700;
+        cursor: pointer;
+        text-decoration: underline;
+        transition: color 0.3s ease;
+    }
+
+    .payment-link:hover {
+        color: #cccccc;
+    }
+
+    .btn-pay {
+        display: block;
+        width: 100%;
+        padding: 14px;
+        background-color: var(--accent-color);
+        color: var(--accent-text);
+        text-align: center;
+        text-decoration: none;
+        font-weight: 600;
+        border-radius: 30px;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+    }
+
+    .btn-pay:hover {
+        opacity: 0.9;
+    }
+
+    /* Seção Contato (Com Fundo Cinza Claro nos Cartões) */
+    .contact-section {
+        background-color: var(--bg-main);
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+
+    .contact-item {
+        background-color: #f0f0f0; /* Fundo Cinza Claro */
+        border: 1px solid #d0d0d0;
+        padding: 25px;
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .contact-item:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+    }
+
+    .contact-item span {
+        font-size: 0.75rem;
+        color: #555555; /* Texto do rótulo escuro para legibilidade */
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        font-weight: 700;
+    }
+
+    .contact-item a {
+        font-size: 1.1rem;
+        color: #111111; /* Link escuro para contraste no fundo claro */
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+    .contact-item a:hover {
+        color: #444444;
+        text-decoration: underline;
+    }
+
+    /* Seção Institucional */
+    .inst-section {
+        background-color: var(--bg-section-alt);
+        border-top: 1px solid var(--border-color);
+    }
+
+    .inst-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 24px;
+    }
+
+    .inst-card {
+        background-color: var(--bg-card);
+        border: 1px solid var(--border-color);
+        padding: 30px;
+        border-radius: 12px;
+    }
+
+    .inst-card h4 {
+        color: var(--text-primary);
+        font-size: 1.2rem;
+        margin-bottom: 12px;
+        font-family: 'Playfair Display', serif;
+    }
+
+    .inst-card p {
+        color: #aaaaaa;
+        font-size: 0.92rem;
+        line-height: 1.6;
+    }
+
+    /* Modal Genérico & Formulários */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 2000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.85);
+        backdrop-filter: blur(5px);
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modal-content {
+        background-color: var(--bg-card);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        padding: 30px;
+        border-radius: 16px;
+        max-width: 550px;
+        width: 90%;
+        max-height: 85vh;
+        overflow-y: auto;
+        position: relative;
+    }
+
+    .modal-content h4 {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+        color: var(--text-primary);
+    }
+
+    .modal-content p {
+        color: #cccccc;
+        font-size: 0.95rem;
+        margin-bottom: 12px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+        text-align: left;
+    }
+
+    .form-group label {
+        display: block;
+        font-size: 0.85rem;
+        color: #aaaaaa;
+        margin-bottom: 5px;
+    }
+
+    .form-group input, .form-group textarea, .form-group select {
+        width: 100%;
+        padding: 10px;
+        background-color: var(--bg-main);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 8px;
+        color: var(--text-primary);
+        font-size: 0.9rem;
+    }
+
+    .theme-preset-buttons {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 10px;
+    }
+
+    .btn-theme-preset {
+        padding: 8px 14px;
+        border-radius: 15px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        background: #222;
+        color: #fff;
+        cursor: pointer;
+        font-size: 0.8rem;
+    }
+
+    .btn-submit {
+        background-color: var(--accent-color);
+        color: var(--accent-text);
+        border: none;
+        padding: 12px 20px;
+        border-radius: 20px;
+        font-weight: 600;
+        cursor: pointer;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .product-list-admin {
+        margin-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 15px;
+    }
+
+    .admin-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .btn-delete {
+        background: #ff4d4d;
+        color: white;
+        border: none;
+        padding: 4px 10px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 0.8rem;
+    }
+
+    .pix-key-box {
+        background-color: var(--bg-main);
+        border: 1px dashed rgba(255, 255, 255, 0.3);
+        padding: 12px;
+        border-radius: 8px;
+        font-family: monospace;
+        font-size: 1.05rem;
+        color: var(--text-primary);
+        margin: 15px 0;
+        text-align: center;
+    }
+
+    .btn-copy {
+        background-color: var(--accent-color);
+        color: var(--accent-text);
+        border: none;
+        padding: 10px 20px;
+        border-radius: 20px;
+        font-weight: 600;
+        cursor: pointer;
+        display: block;
+        margin: 10px auto 0 auto;
+    }
+
+    .close-modal {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        color: #888888;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+
+    /* Rodapé */
+    footer {
+        padding: 40px 8% 25px 8%;
+        background-color: #050505;
+        border-top: 1px solid var(--border-color);
+        color: #777777;
+        font-size: 0.85rem;
+    }
+
+    .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+    }
+
+    .footer-links a {
+        color: #999999;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+        color: var(--text-primary);
+    }
+
+    .footer-copy {
+        text-align: center;
+        color: #555555;
+        font-size: 0.8rem;
+    }
+</style>
+</head>
+<body>
+
+<!-- Cabeçalho -->
+<header>
+    <div class="logo" id="displayHeaderLogo">Carla Miter Tech</div>
+    <nav>
+        <a href="#perfil">Perfil</a>
+        <a href="#midias">Destaques</a>
+        <a href="#produtos">Produtos</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#contato">Contato</a>
+        <a href="#institucional">Institucional</a>
+       
+        <!-- Seletor Rápido de Cor no Menu -->
+        <div class="theme-picker-header" title="Mudar Cor do Site">
+            🎨
+            <input type="color" id="headerColorPicker" value="#0a0a0a" onchange="changeThemeColor(this.value)">
+        </div>
+
+        <a href="https://www.instagram.com/carlamiter" target="_blank" class="nav-insta" id="displayNavInstaLink">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            <span id="displayNavInsta">@carlamiter</span>
+        </a>
+    </nav>
+</header>
+
+<!-- Seção Principal / Perfil -->
+<section id="perfil" class="hero">
+    <div class="hero-tag">Desenvolvimento & Tecnologia</div>
+    <h1 id="displayHeroTitle">Carla Miter Tech</h1>
+    <h2 id="displayHeroSubtitle">Técnica de Sistemas, Contadora Parceira & Designer na Empresa. Soluções computacionais e desenvolvimento web sob medida.</h2>
+   
+    <div class="tech-vision">
+        <p><strong id="displayVisionPrefix">Minha visão como técnica:</strong> <span id="displayVisionText">focada em criar soluções simples, acessíveis e funcionais para o dia a dia. Estou sempre em constante atualização e acompanhando as tendências da área de tecnologia.</span></p>
+    </div>
+
+    <h3 class="section-title">Tecnologias e Ferramentas</h3>
+    <p class="section-subtitle">Conhecimentos técnicos, serviços digitais e especialidades:</p>
+   
+    <div class="skills-grid">
+        <div class="skill-card">
+            <h4>Abertura de MEI</h4>
+            <p>Especialista em Abertura de MEI para autônomos e empreendedores.</p>
+        </div>
+        <div class="skill-card">
+            <h4>Linguagens & Web</h4>
+            <p>HTML5, CSS3, JavaScript.</p>
+        </div>
+        <div class="skill-card">
+            <h4>Ferramentas de Escritório/Produtividade</h4>
+            <p>LibreOffice Calc/Writer, Excel avançado, criação de PDFs interativos.</p>
+        </div>
+        <div class="skill-card">
+            <h4>Hospedagem & Controle de Versão</h4>
+            <p>Git, GitHub, Vercel.</p>
+        </div>
+        <div class="skill-card">
+            <h4>Cartões de Visita Digitais & Links de Bio</h4>
+            <p>Criação e adaptação em PWA/HTML simples. Monte um cartão de visita interativo para celular.</p>
+        </div>
+        <div class="skill-card">
+            <h4>Digitalização de Documentos e Tabelas</h4>
+            <p>Para pessoas e pequenas empresas. Serviço de converter papéis/cadernos/anotações em uma planilha limpa, automatizada com fórmulas e pronta para impressão.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Seção: Mídias & Destaques (Propagandas) -->
+<section id="midias" class="media-section">
+    <h2 class="section-title">Galeria & Destaques</h2>
+    <p class="section-subtitle">Confira demonstrações em vídeo, avisos e imagens dos projetos e novidades.</p>
+
+    <div class="media-grid" id="mediaGrid"></div>
+
+    <div class="admin-controls">
+        <button class="btn-admin" onclick="openModal('adminMediaModal')">📷 Gerenciar Fotos & Vídeos</button>
+    </div>
+</section>
+
+<!-- Seção: Produtos Digitais & Soluções Prontas -->
+<section id="produtos" class="products-section">
+    <h2 class="section-title">Produtos & Soluções Prontas</h2>
+    <p class="section-subtitle">Adquira soluções prontas desenvolvidas para otimizar sua rotina e seu negócio.</p>
+
+    <div class="products-grid" id="productsGrid"></div>
+
+    <div class="admin-controls">
+        <button class="btn-admin" onclick="openModal('siteInfoModal')">⚙️ Editar Dados do Site (Nome, Contato, etc)</button>
+        <button class="btn-admin" onclick="openModal('adminModal')">📦 Gerenciar Meus Produtos</button>
+        <button class="btn-admin" onclick="openModal('themeModal')">🎨 Personalizar Cores do Site</button>
+    </div>
+</section>
+
+<!-- Seção de Serviços -->
+<section id="servicos" class="services-section">
+    <h2 class="section-title">Serviços & Orçamento</h2>
+    <p class="section-subtitle">Entre em contato para solicitar um orçamento personalizado conforme sua necessidade.</p>
+
+    <div class="services-grid">
+        <div class="service-card">
+            <div>
+                <h3>Desenvolvimento de Sistemas & Soluções Digitais</h3>
+                <p>Desenvolvimento sob medida, criação de cartões interativos, automatização de planilhas e documentação técnica.</p>
+                <div class="service-price">A Combinar</div>
+                <div class="payment-methods">
+                    <span class="payment-link" onclick="openModal('pixModal')">PIX</span>
+                </div>
+            </div>
+            <a href="#" target="_blank" id="displayServiceQuoteBtn" class="btn-pay">Solicitar Orçamento</a>
+        </div>
+    </div>
+</section>
+
+<!-- Seção Contato (Com Fundo Cinza Claro) -->
+<section id="contato" class="contact-section">
+    <h2 class="section-title">Contato</h2>
+    <p class="section-subtitle">Entre em contato ou acompanhe o trabalho pelas redes sociais:</p>
+   
+    <div class="contact-grid">
+        <div class="contact-item">
+            <span>WhatsApp / Telefone</span>
+            <a href="#" id="displayContactPhoneLink"><span id="displayContactPhone">(31) 97564-4571</span></a>
+        </div>
+       
+        <div class="contact-item">
+            <span>E-mail</span>
+            <a href="#" id="displayContactEmailLink"><span id="displayContactEmail">carlamiter038@gmail.com</span></a>
+        </div>
+
+        <div class="contact-item">
+            <span>Instagram</span>
+            <a href="#" target="_blank" id="displayContactInstaLink"><span id="displayContactInsta">@carlamiter</span></a>
+        </div>
+    </div>
+</section>
+
+<!-- Seção Institucional -->
+<section id="institucional" class="inst-section">
+    <h2 class="section-title">Institucional</h2>
+    <p class="section-subtitle">Nossos pilares fundamentais, visão de trabalho e compromisso com os clientes.</p>
+
+    <div class="inst-grid">
+        <div class="inst-card">
+            <h4>Missão</h4>
+            <p>Oferecer suporte tecnológico e soluções digitais acessíveis, ajudando pequenos negócios e autônomos a se estruturarem e crescerem com facilidade.</p>
+        </div>
+        <div class="inst-card">
+            <h4>Visão</h4>
+            <p>Ser referência em soluções computacionais simples, funcionais e humanizadas, unindo tecnologia, design e visão contábil prática.</p>
+        </div>
+        <div class="inst-card">
+            <h4>Valores</h4>
+            <p>Transparência, constante atualização técnica, simplicidade, ética profissional e respeito absoluto aos dados de cada cliente.</p>
+        </div>
+    </div>
+</section>
+
+<!-- MODAIS DE EDIÇÃO E CONFIGURAÇÕES -->
+
+<!-- Modal Editar Informações Globais do Site -->
+<div id="siteInfoModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal('siteInfoModal')">&times;</span>
+        <h4>Editar Dados Principais do Site</h4>
+        <p style="font-size: 0.85rem; color: #888888;">Altere informações como seu nome, telefone, e-mail e chave PIX. As mudanças aparecem na hora.</p>
+       
+        <form id="editSiteInfoForm" onsubmit="handleSaveSiteInfo(event)">
+            <div class="form-group">
+                <label>Nome do Perfil / Marca</label>
+                <input type="text" id="editSiteName" required>
+            </div>
+            <div class="form-group">
+                <label>Subtítulo / Descrição da Hero</label>
+                <textarea id="editSiteSubtitle" rows="3" required></textarea>
+            </div>
+            <div class="form-group">
+                <label>WhatsApp / Telefone (Apenas números com DDD)</label>
+                <input type="text" id="editSitePhone" placeholder="Ex: 31975644571" required>
+            </div>
+            <div class="form-group">
+                <label>E-mail de Contato</label>
+                <input type="email" id="editSiteEmail" required>
+            </div>
+            <div class="form-group">
+                <label>Usuário do Instagram (Com @)</label>
+                <input type="text" id="editSiteInsta" placeholder="@carlamiter" required>
+            </div>
+            <div class="form-group">
+                <label>Chave PIX</label>
+                <input type="text" id="editSitePix" required>
+            </div>
+            <div class="form-group">
+                <label>Texto da Visão Técnica</label>
+                <textarea id="editSiteVision" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn-submit">Salvar Alterações</button>
+        </form>
+    </div>
+</div>
+
+<!-- Modal Personalizar Cores -->
+<div id="themeModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal('themeModal')">&times;</span>
+        <h4>Personalizar Cores do Site</h4>
+        <p style="font-size: 0.85rem; color: #888888;">Escolha uma cor de fundo ou selecione um tema pronto:</p>
+
+        <div class="form-group">
+            <label>Cor de Fundo Principal</label>
+            <input type="color" id="pickerBg" value="#0a0a0a" style="height: 40px; cursor: pointer;" onchange="changeThemeColor(this.value)">
+        </div>
+
+        <div class="form-group">
+            <label>Temas Prontos:</label>
+            <div class="theme-preset-buttons">
+                <button class="btn-theme-preset" style="background:#0a0a0a;" onclick="changeThemeColor('#0a0a0a')">Preto Clássico</button>
+                <button class="btn-theme-preset" style="background:#0f172a;" onclick="changeThemeColor('#0f172a')">Azul Noturno</button>
+                <button class="btn-theme-preset" style="background:#180f2a;" onclick="changeThemeColor('#180f2a')">Roxo Moderno</button>
+                <button class="btn-theme-preset" style="background:#0a1a12;" onclick="changeThemeColor('#0a1a12')">Verde Escuro</button>
+                <button class="btn-theme-preset" style="background:#1a0a0a;" onclick="changeThemeColor('#1a0a0a')">Vinho Elegante</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Gerenciar Mídias -->
+<div id="adminMediaModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal('adminMediaModal')">&times;</span>
+        <h4>Gerenciar Fotos & Vídeos</h4>
+        <p style="font-size: 0.85rem; color: #888888;">Adicione e remova imagens ou vídeos promocionais da galeria de destaques.</p>
+       
+        <form id="addMediaForm" onsubmit="handleAddMedia(event)">
+            <div class="form-group">
+                <label>Título / Legenda</label>
+                <input type="text" id="mediaTitle" required placeholder="Ex: Demonstração do App PWA">
+            </div>
+            <div class="form-group">
+                <label>Tipo de Mídia</label>
+                <select id="mediaType">
+                    <option value="image">Imagem (URL)</option>
+                    <option value="youtube">Vídeo do YouTube (Link/Embed)</option>
+                    <option value="video">Vídeo MP4 (URL Direta)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Link / URL da Mídia</label>
+                <input type="text" id="mediaUrl" required placeholder="Cole a URL da imagem, do YouTube ou arquivo MP4">
+            </div>
+            <div class="form-group">
+                <label>Descrição Opcional</label>
+                <textarea id="mediaDesc" rows="2" placeholder="Ex: Confira em detalhes como funciona a interface."></textarea>
+            </div>
+            <button type="submit" class="btn-submit">Adicionar Mídia</button>
+        </form>
+
+        <div class="product-list-admin">
+            <h5 style="color: #ffffff; margin-bottom: 10px;">Mídias Ativas:</h5>
+            <div id="adminMediaList"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Gerenciar Produtos -->
+<div id="adminModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal('adminModal')">&times;</span>
+        <h4>Gerenciar Produtos</h4>
+        <p style="font-size: 0.85rem; color: #888888;">Cadastre novos produtos para a sua vitrine digital ou remova itens antigos.</p>
+       
+        <form id="addProductForm" onsubmit="handleAddProduct(event)">
+            <div class="form-group">
+                <label>Nome do Produto</label>
+                <input type="text" id="prodTitle" required placeholder="Ex: Planilha do MEI">
+            </div>
+            <div class="form-group">
+                <label>Categoria / Tipo</label>
+                <select id="prodCategory">
+                    <option value="Planilha">Planilha</option>
+                    <option value="PWA App">PWA App</option>
+                    <option value="Link/Bio">Link / Bio</option>
+                    <option value="Modelo/Template">Modelo / Template</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Descrição Curta</label>
+                <textarea id="prodDesc" rows="2" required placeholder="Ex: Planilha automatizada para controle mensal de MEI."></textarea>
+            </div>
+            <div class="form-group">
+                <label>Preço</label>
+                <input type="text" id="prodPrice" required placeholder="Ex: R$ 29,90 ou Grátis">
+            </div>
+            <div class="form-group">
+                <label>Link de Compra / Download (ou WhatsApp)</label>
+                <input type="text" id="prodLink" placeholder="Ex: https://wa.me/5531975644571 ou link do Hotmart/Drive">
+            </div>
+            <button type="submit" class="btn-submit">Adicionar Produto</button>
+        </form>
+
+        <div class="product-list-admin">
+            <h5 style="color: #ffffff; margin-bottom: 10px;">Produtos Cadastrados:</h5>
+            <div id="adminProductsList"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal PIX -->
+<div id="pixModal" class="modal">
+    <div class="modal-content" style="text-align: center;">
+        <span class="close-modal" onclick="closeModal('pixModal')">&times;</span>
+        <h4>Chave PIX</h4>
+        <p style="color: #aaaaaa; font-size: 0.9rem;">Utilize a chave abaixo para pagamentos ou depósitos:</p>
+        <div class="pix-key-box" id="pixKey">carlapemi@outlook.com</div>
+        <button class="btn-copy" onclick="copyPixKey()">Copiar Chave PIX</button>
+    </div>
+</div>
+
+<!-- Modais Informativos/Rodapé -->
+<div id="infoGeneraisModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal('infoGeneraisModal')">&times;</span>
+        <h4>Informações Gerais</h4>
+        <p><strong>Atendimento:</strong> Segunda a Sexta, das 08h às 18h.</p>
+        <p><strong>Escopo de Serviços:</strong> Prestação de serviços autônomos de TI, consultoria técnica para sistemas, desenvolvimento de cartões digitais e assessoria na abertura de MEI.</p>
+        <p><strong>Prazos:</strong> Definidos e acordados em proposta/orçamento prévio com cada cliente.</p>
+    </div>
+</div>
+
+<div id="avisoPrivacidadeModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal('avisoPrivacidadeModal')">&times;</span>
+        <h4>Aviso de Privacidade</h4>
+        <p>Respeitamos a sua privacidade. Todos os dados fornecidos no formulário de contato ou via WhatsApp são utilizados estritamente para a prestação e orçamento dos serviços solicitados.</p>
+        <p>Não compartilhamos, vendemos ou cedemos suas informações pessoais a terceiros sem seu consentimento prévio, em total observância à LGPD (Lei Geral de Proteção de Dados).</p>
+    </div>
+</div>
+
+<div id="canalEticaModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal('canalEticaModal')">&times;</span>
+        <h4>Canal de Ética</h4>
+        <p>Mantemos o compromisso com a integridade, transparência e profissionalismo no atendimento.</p>
+        <p>Para dúvidas éticas, sugestões ou comunicações referentes à conduta dos serviços prestados, envie um e-mail diretamente para o nosso contato cadastrado com o assunto <em>"Canal de Ética"</em>.</p>
+    </div>
+</div>
+
+<div id="centralPrivacidadeModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal('centralPrivacidadeModal')">&times;</span>
+        <h4>Central de Privacidade</h4>
+        <p>Aqui você pode exercer seus direitos referentes aos seus dados pessoais de acordo com a LGPD.</p>
+        <p>Você tem o direito de solicitar a confirmação, o acesso, a correção ou a exclusão completa dos seus dados de nossos registros de atendimento. Entre em contato conosco via e-mail.</p>
+    </div>
+</div>
+
+<div id="cookiesModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal('cookiesModal')">&times;</span>
+        <h4>Preferência de Cookies</h4>
+        <p>Este site é minimalista e utiliza apenas <strong>cookies essenciais</strong> para o correto funcionamento das navegações da página e modais.</p>
+        <p>Não utilizamos cookies de terceiros para rastreamento publicitário. Ao continuar navegando, você concorda com o uso de cookies de desempenho e navegação básica.</p>
+    </div>
+</div>
+
+<!-- Rodapé -->
+<footer>
+    <div class="footer-links">
+        <a href="javascript:void(0)" onclick="openModal('infoGeneraisModal')">Informações gerais</a>
+        <a href="javascript:void(0)" onclick="openModal('avisoPrivacidadeModal')">Aviso de privacidade</a>
+        <a href="javascript:void(0)" onclick="openModal('centralPrivacidadeModal')">Central de privacidade</a>
+        <a href="javascript:void(0)" onclick="openModal('cookiesModal')">Preferência de cookies</a>
+        <a href="javascript:void(0)" onclick="openModal('canalEticaModal')">Canal de Ética</a>
+    </div>
+    <div class="footer-copy">
+        <p>&copy; <span id="displayFooterName">Carla Miter Tech</span> - Todos os direitos reservados.</p>
+    </div>
+</footer>
+
+<script>
+    /* --- DADOS PADRÃO DO SITE --- */
+    const defaultSiteInfo = {
+        name: "Carla Miter Tech",
+        subtitle: "Técnica de Sistemas, Contadora Parceira & Designer na Empresa. Soluções computacionais e desenvolvimento web sob medida.",
+        phone: "5531975644571",
+        phoneFormatted: "(31) 97564-4571",
+        email: "carlamiter038@gmail.com",
+        insta: "@carlamiter",
+        pix: "carlapemi@outlook.com",
+        vision: "focada em criar soluções simples, acessíveis e funcionais para o dia a dia. Estou sempre em constante atualização e acompanhando as tendências da área de tecnologia."
+    };
+
+    /* --- GERENCIAMENTO DE DADOS GLOBAIS DO SITE --- */
+    function getSiteInfo() {
+        const stored = localStorage.getItem('carlamiter_site_info');
+        if (!stored) {
+            localStorage.setItem('carlamiter_site_info', JSON.stringify(defaultSiteInfo));
+            return defaultSiteInfo;
+        }
+        return JSON.parse(stored);
+    }
+
+    function renderSiteInfo() {
+        const info = getSiteInfo();
+       
+        // Atualiza Textos
+        document.getElementById('pageTitle').innerText = `${info.name} - Portfólio, Serviços & Produtos`;
+        document.getElementById('displayHeaderLogo').innerText = info.name;
+        document.getElementById('displayHeroTitle').innerText = info.name;
+        document.getElementById('displayHeroSubtitle').innerText = info.subtitle;
+        document.getElementById('displayVisionText').innerText = info.vision;
+        document.getElementById('displayContactPhone').innerText = info.phoneFormatted || info.phone;
+        document.getElementById('displayContactEmail').innerText = info.email;
+        document.getElementById('displayContactInsta').innerText = info.insta;
+        document.getElementById('displayNavInsta').innerText = info.insta;
+        document.getElementById('displayFooterName').innerText = info.name;
+        document.getElementById('pixKey').innerText = info.pix;
+
+        // Atualiza Links
+        const rawPhone = info.phone.replace(/\D/g, '');
+        document.getElementById('displayContactPhoneLink').href = `tel:${rawPhone}`;
+        document.getElementById('displayContactEmailLink').href = `mailto:${info.email}`;
+       
+        const cleanInsta = info.insta.replace('@', '');
+        const instaUrl = `https://www.instagram.com/${cleanInsta}`;
+        document.getElementById('displayContactInstaLink').href = instaUrl;
+        document.getElementById('displayNavInstaLink').href = instaUrl;
+
+        // Link do botão de orçamento
+        document.getElementById('displayServiceQuoteBtn').href = `https://wa.me/${rawPhone}?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento%20personalizado.`;
+
+        // Preenche o formulário do modal de edição com os dados atuais
+        document.getElementById('editSiteName').value = info.name;
+        document.getElementById('editSiteSubtitle').value = info.subtitle;
+        document.getElementById('editSitePhone').value = rawPhone;
+        document.getElementById('editSiteEmail').value = info.email;
+        document.getElementById('editSiteInsta').value = info.insta;
+        document.getElementById('editSitePix').value = info.pix;
+        document.getElementById('editSiteVision').value = info.vision;
+    }
+
+    function handleSaveSiteInfo(event) {
+        event.preventDefault();
+       
+        const rawPhone = document.getElementById('editSitePhone').value.replace(/\D/g, '');
+        let formattedPhone = rawPhone;
+        if (rawPhone.length === 11) {
+            formattedPhone = `(${rawPhone.substring(0,2)}) ${rawPhone.substring(2,7)}-${rawPhone.substring(7)}`;
+        } else if (rawPhone.length === 13 && rawPhone.startsWith('55')) {
+            formattedPhone = `(${rawPhone.substring(2,4)}) ${rawPhone.substring(4,9)}-${rawPhone.substring(9)}`;
+        }
+
+        let instaUser = document.getElementById('editSiteInsta').value.trim();
+        if(!instaUser.startsWith('@')) {
+            instaUser = '@' + instaUser;
+        }
+
+        const updatedInfo = {
+            name: document.getElementById('editSiteName').value,
+            subtitle: document.getElementById('editSiteSubtitle').value,
+            phone: rawPhone,
+            phoneFormatted: formattedPhone,
+            email: document.getElementById('editSiteEmail').value,
+            insta: instaUser,
+            pix: document.getElementById('editSitePix').value,
+            vision: document.getElementById('editSiteVision').value
+        };
+
+        localStorage.setItem('carlamiter_site_info', JSON.stringify(updatedInfo));
+        renderSiteInfo();
+        closeModal('siteInfoModal');
+        alert('Dados do site atualizados com sucesso!');
+    }
+
+    /* --- LÓGICA DE TROCA DE COR DO TEMA --- */
+    function changeThemeColor(hexColor) {
+        document.documentElement.style.setProperty('--bg-main', hexColor);
+        document.documentElement.style.setProperty('--bg-section-alt', adjustBrightness(hexColor, 10));
+        document.documentElement.style.setProperty('--bg-card', adjustBrightness(hexColor, 20));
+       
+        document.getElementById('headerColorPicker').value = hexColor;
+        document.getElementById('pickerBg').value = hexColor;
+
+        localStorage.setItem('carlamiter_theme_color', hexColor);
+    }
+
+    function loadSavedTheme() {
+        const savedColor = localStorage.getItem('carlamiter_theme_color');
+        if (savedColor) {
+            changeThemeColor(savedColor);
+        }
+    }
+
+    function adjustBrightness(hex, percent) {
+        let num = parseInt(hex.replace('#',''), 16);
+        let amt = Math.round(2.55 * percent);
+        let R = (num >> 16) + amt;
+        let G = (num >> 8 & 0x00FF) + amt;
+        let B = (num & 0x0000FF) + amt;
+        return '#' + (0x1000000 + (R<255?R<1?0:R:255)*0x10000 + (G<255?G<1?0:G:255)*0x100 + (B<255?B<1?0:B:255)).toString(16).slice(1);
+    }
+
+    /* --- DADOS E MÍDIAS PADRÃO --- */
+    const initialMedia = [
+        {
+            id: 101,
+            title: "Demonstração de Sistemas e PWAs",
+            type: "image",
+            url: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
+            desc: "Soluções de software desenvolvidas para agilizar processos e otimizar rotinas de trabalho."
+        }
+    ];
+
+    const initialProducts = [
+        {
+            id: 1,
+            title: "Cartão de Visita Digital PWA",
+            category: "PWA App",
+            desc: "Aplicação PWA instalável no celular. Cartão interativo com botões rápidos de contato e apresentação profissional.",
+            price: "R$ 49,90",
+            link: "https://wa.me/5531975644571?text=Olá,%20tenho%20interesse%20no%20Cartão%20Digital%20PWA"
+        },
+        {
+            id: 2,
+            title: "Planilha Financeira MEI & Autônomos",
+            category: "Planilha",
+            desc: "Planilha automatizada em Calc/Excel para controle de receitas, despesas e emissão de relatórios simples para o MEI.",
+            price: "R$ 29,90",
+            link: "https://wa.me/5531975644571?text=Olá,%20tenho%20interesse%20na%20Planilha%20MEI"
+        },
+        {
+            id: 3,
+            title: "Página de Links / Bio Personalizada",
+            category: "Link/Bio",
+            desc: "Página leve, ultra rápida e responsiva para colocar na bio do seu Instagram com todos os seus contatos.",
+            price: "R$ 39,90",
+            link: "https://wa.me/5531975644571?text=Olá,%20tenho%20interesse%20na%20Página%20de%20Links"
+        }
+    ];
+
+    /* --- LÓGICA DE MÍDIAS --- */
+    function getMedia() {
+        const stored = localStorage.getItem('carlamiter_media');
+        if (!stored) {
+            localStorage.setItem('carlamiter_media', JSON.stringify(initialMedia));
+            return initialMedia;
+        }
+        return JSON.parse(stored);
+    }
+
+    function renderMedia() {
+        const mediaList = getMedia();
+        const grid = document.getElementById('mediaGrid');
+        const adminList = document.getElementById('adminMediaList');
+
+        grid.innerHTML = '';
+        adminList.innerHTML = '';
+
+        if (mediaList.length === 0) {
+            grid.innerHTML = '<p style="color:#888; grid-column: 1/-1;">Nenhuma mídia cadastrada no momento.</p>';
+        }
+
+        mediaList.forEach(m => {
+            const card = document.createElement('div');
+            card.className = 'media-card';
+
+            let contentHtml = '';
+            if (m.type === 'image') {
+                contentHtml = `<img src="${m.url}" alt="${m.title}" loading="lazy">`;
+            } else if (m.type === 'youtube') {
+                let embedUrl = m.url;
+                if (m.url.includes('watch?v=')) {
+                    embedUrl = m.url.replace('watch?v=', 'embed/');
+                } else if (m.url.includes('youtu.be/')) {
+                    embedUrl = m.url.replace('youtu.be/', 'www.youtube.com/embed/');
+                }
+                contentHtml = `<iframe src="${embedUrl}" allowfullscreen></iframe>`;
+            } else if (m.type === 'video') {
+                contentHtml = `<video src="${m.url}" controls></video>`;
+            }
+
+            card.innerHTML = `
+                <div class="media-container">${contentHtml}</div>
+                <div class="media-info">
+                    <h4>${m.title}</h4>
+                    ${m.desc ? `<p>${m.desc}</p>` : ''}
+                </div>
+            `;
+            grid.appendChild(card);
+
+            const adminItem = document.createElement('div');
+            adminItem.className = 'admin-item';
+            adminItem.innerHTML = `
+                <span style="color:#eee; font-size: 0.9rem;"><strong>${m.title}</strong> (${m.type})</span>
+                <button class="btn-delete" onclick="removeMedia(${m.id})">Excluir</button>
+            `;
+            adminList.appendChild(adminItem);
+        });
+    }
+
+    function handleAddMedia(event) {
+        event.preventDefault();
+        const title = document.getElementById('mediaTitle').value;
+        const type = document.getElementById('mediaType').value;
+        const url = document.getElementById('mediaUrl').value;
+        const desc = document.getElementById('mediaDesc').value;
+
+        const mediaList = getMedia();
+        mediaList.push({ id: Date.now(), title, type, url, desc });
+        localStorage.setItem('carlamiter_media', JSON.stringify(mediaList));
+
+        document.getElementById('addMediaForm').reset();
+        renderMedia();
+        alert('Mídia cadastrada com sucesso!');
+    }
+
+    function removeMedia(id) {
+        if (confirm("Deseja realmente remover esta mídia?")) {
+            let mediaList = getMedia();
+            mediaList = mediaList.filter(m => m.id !== id);
+            localStorage.setItem('carlamiter_media', JSON.stringify(mediaList));
+            renderMedia();
+        }
+    }
+
+    /* --- LÓGICA DE PRODUTOS --- */
+    function getProducts() {
+        const stored = localStorage.getItem('carlamiter_products');
+        if (!stored) {
+            localStorage.setItem('carlamiter_products', JSON.stringify(initialProducts));
+            return initialProducts;
+        }
+        return JSON.parse(stored);
+    }
+
+    function renderProducts() {
+        const products = getProducts();
+        const grid = document.getElementById('productsGrid');
+        const adminList = document.getElementById('adminProductsList');
+
+        grid.innerHTML = '';
+        adminList.innerHTML = '';
+
+        if(products.length === 0) {
+            grid.innerHTML = '<p style="color:#888; grid-column: 1/-1;">Nenhum produto cadastrado no momento.</p>';
+        }
+
+        products.forEach(p => {
+            const card = document.createElement('div');
+            card.className = 'product-card';
+            card.innerHTML = `
+                <div>
+                    <span class="product-badge">${p.category}</span>
+                    <h3>${p.title}</h3>
+                    <p>${p.desc}</p>
+                </div>
+                <div>
+                    <div class="product-price">${p.price}</div>
+                    <a href="${p.link || '#'}" target="_blank" class="btn-buy-product">Comprar / Adquirir</a>
+                </div>
+            `;
+            grid.appendChild(card);
+
+            const adminItem = document.createElement('div');
+            adminItem.className = 'admin-item';
+            adminItem.innerHTML = `
+                <span style="color:#eee; font-size: 0.9rem;"><strong>${p.title}</strong> (${p.price})</span>
+                <button class="btn-delete" onclick="removeProduct(${p.id})">Excluir</button>
+            `;
+            adminList.appendChild(adminItem);
+        });
+    }
+
+    function handleAddProduct(event) {
+        event.preventDefault();
+        const title = document.getElementById('prodTitle').value;
+        const category = document.getElementById('prodCategory').value;
+        const desc = document.getElementById('prodDesc').value;
+        const price = document.getElementById('prodPrice').value;
+        let link = document.getElementById('prodLink').value;
+
+        const info = getSiteInfo();
+        const phone = info.phone.replace(/\D/g, '');
+
+        if(!link) {
+            link = `https://wa.me/${phone}?text=Olá,%20tenho%20interesse%20no%20produto:%20${encodeURIComponent(title)}`;
+        }
+
+        const products = getProducts();
+        products.push({ id: Date.now(), title, category, desc, price, link });
+        localStorage.setItem('carlamiter_products', JSON.stringify(products));
+
+        document.getElementById('addProductForm').reset();
+        renderProducts();
+        alert('Produto adicionado com sucesso!');
+    }
+
+    function removeProduct(id) {
+        if(confirm("Deseja realmente remover este produto?")) {
+            let products = getProducts();
+            products = products.filter(p => p.id !== id);
+            localStorage.setItem('carlamiter_products', JSON.stringify(products));
+            renderProducts();
+        }
+    }
+
+    /* --- CONTROLES DE MODAL & UTILITÁRIOS --- */
+    function openModal(id) {
+        document.getElementById(id).style.display = 'flex';
+    }
+
+    function closeModal(id) {
+        document.getElementById(id).style.display = 'none';
+    }
+
+    function copyPixKey() {
+        const pixKey = document.getElementById('pixKey').innerText;
+        navigator.clipboard.writeText(pixKey).then(() => {
+            alert('Chave PIX copiada para a área de transferência!');
+        }).catch(err => {
+            alert('Chave PIX: ' + pixKey);
+        });
+    }
+
+    window.onclick = function(event) {
+        if (event.target.classList.contains('modal')) {
+            event.target.style.display = "none";
+        }
+    }
+
+    // Inicialização do site
+    document.addEventListener('DOMContentLoaded', () => {
+        loadSavedTheme();
+        renderSiteInfo();
+        renderMedia();
+        renderProducts();
+    });
+</script>
+</body>
+</html>
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+
+ 
+
+ 
+
+
+ 
