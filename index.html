@@ -4,6 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="pageTitle">Carla Miter Tech - Portfólio, Serviços & Produtos</title>
+
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2941217546237733"
+     crossorigin="anonymous"></script>
+
 <!-- Fontes do Google -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -630,14 +635,14 @@
     <div class="hero-tag">Desenvolvimento & Tecnologia</div>
     <h1 id="displayHeroTitle">Carla Miter Tech</h1>
     <h2 id="displayHeroSubtitle">Técnica de Sistemas, Contadora Parceira & Designer na Empresa. Soluções computacionais e desenvolvimento web sob medida.</h2>
-   
+  
     <div class="tech-vision">
         <p><strong id="displayVisionPrefix">Minha visão como técnica:</strong> <span id="displayVisionText">focada em criar soluções simples, acessíveis e funcionais para o dia a dia. Estou sempre em constante atualização e acompanhando as tendências da área de tecnologia.</span></p>
     </div>
 
     <h3 class="section-title">Tecnologias e Ferramentas</h3>
     <p class="section-subtitle">Conhecimentos técnicos, serviços digitais e especialidades:</p>
-   
+  
     <div class="skills-grid">
         <div class="skill-card">
             <h4>Abertura de MEI</h4>
@@ -706,13 +711,13 @@
 <section id="contato" class="contact-section">
     <h2 class="section-title">Contato</h2>
     <p class="section-subtitle">Entre em contato ou acompanhe o trabalho pelas redes sociais:</p>
-   
+  
     <div class="contact-grid">
         <div class="contact-item">
             <span>WhatsApp / Telefone</span>
             <a href="#" id="displayContactPhoneLink"><span id="displayContactPhone">(31) 97564-4571</span></a>
         </div>
-       
+      
         <div class="contact-item">
             <span>E-mail</span>
             <a href="#" id="displayContactEmailLink"><span id="displayContactEmail">carlamiter038@gmail.com</span></a>
@@ -886,7 +891,7 @@
         const rawPhone = siteInfo.phone;
         document.getElementById('displayContactPhoneLink').href = `tel:${rawPhone}`;
         document.getElementById('displayContactEmailLink').href = `mailto:${siteInfo.email}`;
-       
+      
         const cleanInsta = siteInfo.insta.replace('@', '');
         const instaUrl = `https://www.instagram.com/${cleanInsta}`;
         document.getElementById('displayContactInstaLink').href = instaUrl;
@@ -996,6 +1001,3 @@
 </html>
 
  
-
-
-        
