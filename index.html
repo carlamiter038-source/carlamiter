@@ -11,13 +11,13 @@
 <style>
     /* Variáveis de Tema Customizáveis */
     :root {
-        --bg-main: #0a0a0a;
-        --bg-section-alt: rgba(13, 13, 13, 0.85);
-        --bg-card: rgba(20, 20, 20, 0.85);
+        --bg-main: transparent;
+        --bg-section-alt: rgba(13, 13, 13, 0.6);
+        --bg-card: rgba(20, 20, 20, 0.75);
         --accent-color: #ffffff;
         --accent-text: #000000;
         --text-primary: #f3f3f3;
-        --text-muted: #cccccc;
+        --text-muted: #d0d0d0;
         --border-color: rgba(255, 255, 255, 0.15);
     }
 
@@ -31,22 +31,22 @@
     }
 
     body {
-        background-color: var(--bg-main);
-        /* Configuração da foto de fundo com overlay para contraste */
-        background-image: linear-gradient(rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.85)), url('1000354191.png');
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-attachment: fixed;
+        /* Adicione o caminho da sua imagem na linha abaixo: */
+        background-image: url('image 1000354191png');
         background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-color: #0a0a0a; /* Cor de fallback caso a imagem falhe */
         color: var(--text-primary);
-        line-height: 1.7;
+          background-image: url('fundo.jpg');
         letter-spacing: 0.2px;
         transition: background-color 0.4s ease, color 0.4s ease;
     }
 
     /* Cabeçalho */
     header {
-        background-color: rgba(10, 10, 10, 0.9);
+        background-color: rgba(10, 10, 10, 0.85);
         backdrop-filter: blur(12px);
         border-bottom: 1px solid var(--border-color);
         padding: 18px 8%;
@@ -77,7 +77,7 @@
     }
 
     nav a {
-        color: #b3b3b3;
+        color: #e0e0e0;
         text-decoration: none;
         font-size: 0.88rem;
         font-weight: 500;
@@ -95,7 +95,7 @@
         border: 1px solid rgba(255, 255, 255, 0.3);
         padding: 6px 14px;
         border-radius: 20px;
-        background: rgba(255, 255, 255, 0.05);
+        background: rgba(255, 255, 255, 0.1);
     }
 
     .nav-insta:hover {
@@ -104,24 +104,26 @@
         border-color: var(--accent-color);
     }
 
-    /* Seções Gerais */
+    /* Seções Gerais com suporte a fundo visível */
     section {
         padding: 120px 8% 80px 8%;
         min-height: 80vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
+        backdrop-filter: blur(3px); /* Leve desfoque no fundo para melhorar a leitura */
     }
 
     .hero {
         border-bottom: 1px solid var(--border-color);
+        background-color: rgba(0, 0, 0, 0.4);
     }
 
     .hero-tag {
         text-transform: uppercase;
         font-size: 0.8rem;
         letter-spacing: 2px;
-        color: #a1a1a1;
+        color: #d1d1d1;
         margin-bottom: 10px;
         font-weight: 600;
     }
@@ -143,12 +145,11 @@
     }
 
     .tech-vision {
-        background-color: rgba(224, 224, 224, 0.95);
+        background-color: rgba(255, 255, 255, 0.9);
         border-left: 3px solid #000000;
         padding: 20px 24px;
         border-radius: 0 12px 12px 0;
         margin-bottom: 40px;
-        backdrop-filter: blur(5px);
     }
 
     .tech-vision p {
@@ -165,7 +166,7 @@
     }
 
     .section-subtitle {
-        color: #cccccc;
+        color: #d0d0d0;
         margin-bottom: 40px;
         font-size: 0.95rem;
     }
@@ -179,16 +180,16 @@
 
     .skill-card {
         background-color: var(--bg-card);
-        backdrop-filter: blur(8px);
         border: 1px solid var(--border-color);
         padding: 24px;
         border-radius: 12px;
         transition: all 0.3s ease;
+        backdrop-filter: blur(8px);
     }
 
     .skill-card:hover {
         transform: translateY(-4px);
-        border-color: rgba(255, 255, 255, 0.4);
+        border-color: rgba(255, 255, 255, 0.5);
     }
 
     .skill-card h4 {
@@ -199,14 +200,13 @@
     }
 
     .skill-card p {
-        color: #cccccc;
+        color: #e0e0e0;
         font-size: 0.92rem;
     }
 
-    /* Seção Mídia & Destaques (Propagandas) */
+    /* Seção Mídia & Destaques */
     .media-section {
         background-color: var(--bg-section-alt);
-        backdrop-filter: blur(8px);
         border-bottom: 1px solid var(--border-color);
     }
 
@@ -218,12 +218,12 @@
 
     .media-card {
         background-color: var(--bg-card);
-        backdrop-filter: blur(8px);
         border: 1px solid var(--border-color);
         border-radius: 12px;
         overflow: hidden;
         display: flex;
         flex-direction: column;
+        backdrop-filter: blur(8px);
     }
 
     .media-container {
@@ -258,12 +258,13 @@
     }
 
     .media-info p {
-        color: #aaaaaa;
+        color: #cccccc;
         font-size: 0.85rem;
     }
 
     /* Seção de Produtos Digitais */
     .products-section {
+        background-color: rgba(0, 0, 0, 0.3);
         border-bottom: 1px solid var(--border-color);
     }
 
@@ -275,7 +276,6 @@
 
     .product-card {
         background: var(--bg-card);
-        backdrop-filter: blur(8px);
         border: 1px solid var(--border-color);
         border-radius: 16px;
         padding: 30px;
@@ -284,16 +284,17 @@
         justify-content: space-between;
         position: relative;
         transition: all 0.3s ease;
+        backdrop-filter: blur(8px);
     }
 
     .product-card:hover {
-        border-color: rgba(255, 255, 255, 0.3);
+        border-color: rgba(255, 255, 255, 0.4);
         transform: translateY(-5px);
     }
 
     .product-badge {
         align-self: flex-start;
-        background: rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.15);
         color: var(--text-primary);
         font-size: 0.75rem;
         padding: 4px 12px;
@@ -312,7 +313,7 @@
     }
 
     .product-card p {
-        color: #cccccc;
+        color: #d0d0d0;
         font-size: 0.9rem;
         margin-bottom: 20px;
     }
@@ -349,7 +350,6 @@
     /* Seção de Serviços */
     .services-section {
         background-color: var(--bg-section-alt);
-        backdrop-filter: blur(8px);
         border-bottom: 1px solid var(--border-color);
     }
 
@@ -361,13 +361,13 @@
 
     .service-card {
         background: var(--bg-card);
-        backdrop-filter: blur(8px);
         border: 1px solid var(--border-color);
         padding: 35px 30px;
         border-radius: 16px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        backdrop-filter: blur(8px);
     }
 
     .service-card h3 {
@@ -392,7 +392,7 @@
 
     .payment-methods {
         font-size: 0.8rem;
-        color: #aaaaaa;
+        color: #bbbbbb;
         margin-bottom: 25px;
         text-transform: uppercase;
         letter-spacing: 1px;
@@ -432,6 +432,7 @@
 
     /* Seção Contato */
     .contact-section {
+        background-color: rgba(0, 0, 0, 0.4);
         border-bottom: 1px solid var(--border-color);
     }
 
@@ -442,8 +443,7 @@
     }
 
     .contact-item {
-        background-color: rgba(240, 240, 240, 0.95);
-        backdrop-filter: blur(8px);
+        background-color: rgba(240, 240, 240, 0.9);
         border: 1px solid #d0d0d0;
         padding: 25px;
         border-radius: 12px;
@@ -455,12 +455,12 @@
 
     .contact-item:hover {
         transform: translateY(-3px);
-        box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+        box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
     }
 
     .contact-item span {
         font-size: 0.75rem;
-        color: #555555;
+        color: #444444;
         text-transform: uppercase;
         letter-spacing: 1.5px;
         font-weight: 700;
@@ -481,7 +481,6 @@
     /* Seção Institucional */
     .inst-section {
         background-color: var(--bg-section-alt);
-        backdrop-filter: blur(8px);
         border-top: 1px solid var(--border-color);
     }
 
@@ -493,10 +492,10 @@
 
     .inst-card {
         background-color: var(--bg-card);
-        backdrop-filter: blur(8px);
         border: 1px solid var(--border-color);
         padding: 30px;
         border-radius: 12px;
+        backdrop-filter: blur(8px);
     }
 
     .inst-card h4 {
@@ -507,7 +506,7 @@
     }
 
     .inst-card p {
-        color: #aaaaaa;
+        color: #cccccc;
         font-size: 0.92rem;
         line-height: 1.6;
     }
@@ -553,7 +552,7 @@
     }
 
     .pix-key-box {
-        background-color: var(--bg-main);
+        background-color: #0a0a0a;
         border: 1px dashed rgba(255, 255, 255, 0.3);
         padding: 12px;
         border-radius: 8px;
@@ -590,7 +589,7 @@
         padding: 40px 8% 25px 8%;
         background-color: rgba(5, 5, 5, 0.95);
         border-top: 1px solid var(--border-color);
-        color: #777777;
+        color: #aaaaaa;
         font-size: 0.85rem;
     }
 
@@ -603,7 +602,7 @@
     }
 
     .footer-links a {
-        color: #999999;
+        color: #cccccc;
         text-decoration: none;
         transition: color 0.3s ease;
     }
@@ -614,7 +613,7 @@
 
     .footer-copy {
         text-align: center;
-        color: #555555;
+        color: #888888;
         font-size: 0.8rem;
     }
 </style>
@@ -726,7 +725,7 @@
             <span>WhatsApp / Telefone</span>
             <a href="#" id="displayContactPhoneLink"><span id="displayContactPhone">(31) 97564-4571</span></a>
         </div>
-
+     
         <div class="contact-item">
             <span>E-mail</span>
             <a href="#" id="displayContactEmailLink"><span id="displayContactEmail">carlamiter038@gmail.com</span></a>
@@ -900,7 +899,7 @@
         const rawPhone = siteInfo.phone;
         document.getElementById('displayContactPhoneLink').href = `tel:${rawPhone}`;
         document.getElementById('displayContactEmailLink').href = `mailto:${siteInfo.email}`;
-
+     
         const cleanInsta = siteInfo.insta.replace('@', '');
         const instaUrl = `https://www.instagram.com/${cleanInsta}`;
         document.getElementById('displayContactInstaLink').href = instaUrl;
@@ -1008,12 +1007,6 @@
 </script>
 </body>
 </html>
-
- 
-
-
- 
-
 
  
 
